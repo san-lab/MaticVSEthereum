@@ -41,6 +41,8 @@ const ABI = [
 const contractAddressRinkeby = "0x896DA95e07B42002094E0C52c2051b84EF725Fc7";
 const contractAddressMumbai = "0x127f01D3Fc55d0c920af783ad1cb2e1016572e8D";
 
+let coolNumber;
+
 let accounts = [];
 let chainId;
 const ethereumButton = document.querySelector('.enableEthereumButton');
@@ -48,6 +50,8 @@ const showAccount = document.querySelector('.showAccount');
 const showChainInfo = document.querySelector('.showChainInfo');
 const showMetamaskInstalled = document.querySelector('.showMetamaskInstalled');
 const showNumber = document.querySelector('.showNumber');
+
+let snackbarContainer = document.querySelector('#demo-toast-example');
 
 if (typeof window.ethereum !== 'undefined') {
     showMetamaskInstalled.innerHTML = 'MetaMask is installed!';
@@ -115,10 +119,15 @@ async function printCoolNumber() {
 }
 async function changeCoolNumber() {
     const value = Math.floor(Math.random() * 100);
-    console.log(`Updating coolNumber with ${value}`);
+    const data = {
+        message: 'Updating number with # ' + value,
+        timeout: 10000,
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
     accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     await window.contract.methods.setNumber(value).send({ from: account });
+
 }
 
 ethereum.on('chainChanged', () => {

@@ -8,13 +8,21 @@
   <meta name="description" content="Matic vs Ethereum">
   <meta name="author" content="SanLab">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+
 </head>
 
 <body>
 
+<div class="mdl-grid">
+<div class="mdl-cell mdl-cell--4-col"></div>
+<div class="mdl-cell mdl-cell--4-col">
+
     <p>Metamask: <span class="showMetamaskInstalled"></span></p>
 
-    <button class="enableEthereumButton">Enable Ethereum</button>
+    <button class="enableEthereumButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Enable Ethereum</button>
     <p>Account: <span class="showAccount"></span></p>
 
     <hr>
@@ -23,12 +31,24 @@
 
     <hr>
 
-    <button onclick="printCoolNumber();">Print Cool Number</button>
-    <button onclick="changeCoolNumber();">Change Cool Number</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="printCoolNumber();">Print Cool Number</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="changeCoolNumber();">Change Cool Number</button>
 
     <p>Number: <span class="showNumber"></span></p>
 
+<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
+
+
 <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@3.0.0/dist/web3.min.js"></script>
 <script src="scripts.js"></script>
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+</div>
+<div class="mdl-cell mdl-cell--4-col"></div>
+</div>
+
 </body>
 </html>
